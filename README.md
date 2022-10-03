@@ -1,6 +1,9 @@
 <h1>Xavier O'Keefe Projects</h1>
 Hello! Here is a collection of my personal projects. 
 
+<h2>square.py</h2>
+- Developed code to ove the sub around in our simulation environment Gazebo.
+
 <h2>fishtank.py</h2>
 - Used bext to create a virtual fish tank
 
