@@ -1,5 +1,5 @@
-<h1>Xavier O'Keefe Projects</h1>
-Hello! Here is a collection of my personal projects. 
+<h1>Xavier O'Keefe PORTFOLIO</h1>
+Hello! Here is a collection of my personal projects. Each folder will contain files with its corresponding document type and documentation about each program.
 
 <h2>square.py</h2>
 - Developed code to ove the sub around in our simulation environment Gazebo.
