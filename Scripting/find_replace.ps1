@@ -1,11 +1,8 @@
+#Function to actually find and replace words
 function Replace-Word {
-    param($File_Path,$FindText,$ReplaceText)
-    Write-Output $Findtext
+    param($File_Path,$FindText,$ReplaceText) #parameters, basically args
     $Word = New-Object -ComObject Word.Application
     $WordFiles = Get-ChildItem -Path $File_Path -Recurse | ? Name -like "*.do[c,t]*"
-
-    # $FindText = Read-Host -Prompt 'Word to replace' # <= Find this text
-    # $ReplaceText = Read-Host -Prompt 'Replacement Word' # <= Replace it with this text
 
     $MatchCase = $false
     $MatchWholeWorld = $true
@@ -35,21 +32,18 @@ function Replace-Word {
 
 Set-StrictMode -Version 3
 
-## Load the Windows Forms assembly
 Add-Type -Assembly System.Windows.Forms
-## Create the main form
 
-$form = New-Object Windows.Forms.Form
+#Creates Form
+$form = New-Object Windows.Forms.Form 
 $form.Size = New-Object Drawing.Size @(400,200)
 $form.FormBorderStyle = "FixedToolWindow"
 
-
-## Create the listbox to hold the items from the pipeline
-
-$textbox = New-Object Windows.Forms.TextBox
+#Creates textbox(es) in the form
+$textbox = New-Object Windows.Forms.TextBox 
 $textbox.Top = 5
 $textbox.Left = 5
-$textBox.Width = 380
+$textBox.Width = 360
 $textbox.Anchor = "Left","Right"
 $textBox.Text = 'Use the button to select folder'
 $form.Text = 'Find Replace'
@@ -69,15 +63,12 @@ $textBox3.Width = 100
 $textbox3.Text = "Replacement Word"
 $textbox3.Anchor = "Left","Right"
 
-
-
-
-## Create the button panel to hold the OK and Cancel buttons
-
+#Create button panel for buttons to live on
 $buttonPanel = New-Object Windows.Forms.Panel
 $buttonPanel.Size = New-Object Drawing.Size @(400,40)
 $buttonPanel.Dock = "Bottom"
 
+#Allows user to use windows GUI to insert files, Improvement over copy/pasting path (previous method)
 $selectButton = New-Object Windows.Forms.Button
 $selectButton.Text = 'Select'
 $selectButton.Top = $buttonPanel.Height - $selectButton.Height - 10
@@ -90,7 +81,7 @@ $selectButton.Add_Click({
 })
 $textBox.ReadOnly = $true
 
-## Create the Cancel button, which will anchor to the bottom right
+# Create the Cancel button, which will anchor to the bottom right
 $cancelButton = New-Object Windows.Forms.Button
 $cancelButton.Text = "Cancel"
 $cancelButton.DialogResult = "Cancel"
@@ -98,8 +89,7 @@ $cancelButton.Top = $buttonPanel.Height - $cancelButton.Height - 10
 $cancelButton.Left = $buttonPanel.Width - $cancelButton.Width - 10
 $cancelButton.Anchor = "Right"
 
-
-## Create the OK button, which will anchor to the left of Cancel
+# Create the OK button, which will anchor to the left of Cancel
 $okButton = New-Object Windows.Forms.Button
 $okButton.Text = "Ok"
 $okButton.DialogResult = "Ok"
@@ -107,14 +97,12 @@ $okButton.Top = $cancelButton.Top
 $okButton.Left = $cancelButton.Left - $okButton.Width - 5
 $okButton.Anchor = "Right"
 
-## Add the buttons to the button panel
+# Add the buttons to the button panel
 $buttonPanel.Controls.Add($okButton)
 $buttonPanel.Controls.Add($cancelButton)
 $buttonPanel.Controls.Add($selectButton)
-## Add the button panel and list box to the form, and also set
 
-## the actions for the buttons
-
+#Add textboxes, buttons to forms
 $form.Controls.Add($buttonPanel)
 $form.Controls.Add($textbox)
 $form.Controls.Add($textbox2)
@@ -122,26 +110,26 @@ $form.Controls.Add($textbox3)
 $form.AcceptButton = $okButton
 $form.CancelButton = $cancelButton
 
-
-
-
 $form.Add_Shown( { $form.Activate(); $textbox.Focus() } )
 
-
-## Show the form, and wait for the response
-
+# run form, wait for results (ok or close)
 $result = $form.ShowDialog()
 
-
-## If they pressed OK (or Enter,) go through all the
-
-## checked items and send the corresponding object down the pipeline
-
+#IF ok or enter are pressed, read text boxes, check path, pass to fxn
 if($result -eq "OK")
-
 {
     $textbox.Text
     $textbox2.Text
     $textbox3.Text
-    Replace-Word $textbox.Text $textbox2.Text $textbox3.Text
+    if($textbox.Text)
+    {
+        if(Test-Path $textbox.Text)
+        {
+            Replace-Word $textbox.Text $textbox2.Text $textbox3.Text
+        }
+    }
+    else
+    {
+        Write-Output "Error, check that path is valid"
+    }
 }
