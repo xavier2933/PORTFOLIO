@@ -7,7 +7,7 @@
 <h2>fishtank.py</h2>
 - Used bext to create a virtual fish tank
 
-<h2>pillowcounter.py</h2>
+<h2>linefollower.py</h2>
 - developed for Colorado Robosub, code would allow us to follow a line autonomously
 - Used the library pillow to identify which pixels were red, then used this data to track where the line was and feed this information to the sub.
 
