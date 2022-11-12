@@ -1,4 +1,17 @@
-
+############################linefollower.py########################
+# This was developed for the colorado robosub club. This code 
+# uses Pillow to identify which pixels in an image possessed the 
+# color red (the color of the line). After chopping up the image 
+# into 9 sections, I could then make a determination on what the
+# should do based on the perceived direction of the line. 
+#
+#
+# Unfortunately our robot was not in a state to implement this code
+# (strafe was to iffy), so the control statements at the end are 
+# incomplete. I am still proud of this code and the fact that it
+# accomplished what I wanted it to, so I have chosen to still
+# include it in my portfolio
+###################################################################
 from PIL import Image, ImageEnhance  #use pillow
         
 im = Image.open('verticallinefried.jpg', 'r') #open test image
@@ -22,7 +35,7 @@ print(firstpix)
 
 def gostraight():
     if midr_rows > 0 and midlrows > 0 and midmrows > 0:
-        print("go in previous direction")
+        print("go in previous direction") #these statements were effectively psuedocode for implementation
         return
   
     if midlrows > 0: # these are also switched (l and r)
@@ -34,7 +47,7 @@ def gostraight():
 
 def godown2():
     print("STOP")
-    if botm_rows > 0: # this is bottom, no clue why its switched
+    if botm_rows > 0: 
         print(" go down")
     if botm_rows == 0: 
         gostraight()
@@ -55,7 +68,7 @@ for y in range(0, int(h)):        #top left
         red = pixel[0]
         green = pixel[1]
         blue = pixel[2]
-        if green < g and blue < b:  # need to adjust these parameters per image
+        if green < g and blue < b:  
             toplrows +=1
             break
     for x in range(int(w), 2*int(w)): #top mid
@@ -63,7 +76,7 @@ for y in range(0, int(h)):        #top left
         red = pixel[0]
         green = pixel[1]
         blue = pixel[2]
-        if green < g and blue < b:  # need to adjust these parameters per image
+        if green < g and blue < b:  
             topmrows +=1
             break
     for x in range(2*int(w), width): #top right
@@ -71,7 +84,7 @@ for y in range(0, int(h)):        #top left
         red = pixel[0]
         green = pixel[1]
         blue = pixel[2]
-        if green < g and blue < b:  # need to adjust these parameters per image
+        if green < g and blue < b:  
             topr_rows +=1
             break
 
@@ -81,7 +94,7 @@ for y in range(int(h), 2*int(h)):        #mid left
         red = pixel[0]
         green = pixel[1]
         blue = pixel[2]
-        if green < g and blue < b:  # need to adjust these parameters per image
+        if green < g and blue < b:  
             midlrows +=1
             break
     for x in range(int(w), 2*int(w)): #mid mid
@@ -89,7 +102,7 @@ for y in range(int(h), 2*int(h)):        #mid left
         red = pixel[0]
         green = pixel[1]
         blue = pixel[2]
-        if green < g and blue < b:  # need to adjust these parameters per image
+        if green < g and blue < b:  
             midmrows +=1
             break
     for x in range(2*int(w), width): #mid right
@@ -97,7 +110,7 @@ for y in range(int(h), 2*int(h)):        #mid left
         red = pixel[0]
         green = pixel[1]
         blue = pixel[2]
-        if green < g and blue < b:  # need to adjust these parameters per image
+        if green < g and blue < b:  
             midr_rows +=1
             break
 
@@ -107,7 +120,7 @@ for y in range(2*int(h), height):        #bottom left
         red = pixel[0]
         green = pixel[1]
         blue = pixel[2]
-        if green < g and blue < b:  # need to adjust these parameters per image
+        if green < g and blue < b:  
             botlrows +=1
             break
     for x in range(int(w), 2*int(w)): #bottom mid
@@ -115,7 +128,7 @@ for y in range(2*int(h), height):        #bottom left
         red = pixel[0]
         green = pixel[1]
         blue = pixel[2]
-        if green < g and blue < b:  # need to adjust these parameters per image
+        if green < g and blue < b: 
             botm_rows +=1
             break
     for x in range(2*int(w), width): #bottom right
@@ -123,40 +136,27 @@ for y in range(2*int(h), height):        #bottom left
         red = pixel[0]
         green = pixel[1]
         blue = pixel[2]
-        if green < g and blue < b:  # need to adjust these parameters per image
+        if green < g and blue < b:  
             botr_rows +=1
             break
     
-if totalrows < int(h):
+if totalrows < int(h): #very few rows with red detected, probably a straight segment
     gostraight()
 
 
 
-if totalrows > int(h):   #controls going down
+if totalrows > int(h):   #lots of rows with red, most likely a cue to go down (-z)
     if botlrows > 0 or botr_rows > 0:
         print("slow down")
     else:
         godown2()
-    
-    
-    #if topmrows > 10 and midlrows > 10:
-      #  print('go left')
 
+if topmrows > 10 and midlrows > 10: #indicates time to turn
+    print('go left')
+    
 
-if topmrows > 20 and midmrows < (int(h) / 2):
+if topmrows > 20 and midmrows < (int(h) / 2): ##indicated end of the line
     print('stop')
-  
-        
-        
-        
-#for x in range(width/2):
-   # for y in range(height/2):   
+      
 print(totalrows)
 
-
-
-
-
-    
-#pix_val = list(im.getdata())
-#print(pix_val)
