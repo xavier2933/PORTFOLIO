@@ -40,7 +40,7 @@ class Vars:
     def req_score(self):
         print("How much is the final worth? (in %)")
         worth = float(input(self.prompt))/100
-        if 0 > worth or worth >= 100:
+        if 0 > worth or worth >= 1:
             print("You entered a score that was out-of-bounds. Please try again")
             self.req_score()
         print("What grade do you want in the class?")
@@ -58,7 +58,7 @@ class Vars:
     def find_grade(self):
         print("How much is the final worth? (in %)")
         worth = float(input(self.prompt))/100
-        if 0 > worth or worth >= 100:
+        if 0 > worth or worth >= 1:
             print("You entered a score that was out-of-bounds. Please try again")
             self.find_grade()
         print("What did you get on the final?")
