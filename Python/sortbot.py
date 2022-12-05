@@ -2,7 +2,7 @@ import os
 import argparse
 
 parser = argparse.ArgumentParser(
-    description = "Clean up directory and sort files into corresponding folders"
+    description = "Clean up directory and sort files into corresponding folderss"
 )
 
 parser.add_argument(
