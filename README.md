@@ -10,9 +10,8 @@ Hello! Here is a collection of my personal projects. Each folder will contain fi
 <h2>Scripting</h2>
 - Contains a script written for a client
 
-<h2>Where is the C++??</h2>
-- My resume says that I know C++, so where is it? Most of my C++ experience has come from my coursework at CU Boulder. This means that most of my C++ coding has been written in homework documents that are not entirely my own work. I do not feel comfortable advertising myself with this work, thus the omission. <br/>
-- I am currently in a data structures course, where we code exclusively in C++. This means that I have a solid understanding of the implementation of linked lists, stacks, queues, trees, and hash maps.
+<h2>C++</h2>
+- Most of my experience with C++ has come from courses at CU Boulder, so there is not much work that I am able to share in C++. I have added my final project for Data Structures, which involved using both open addressing and chaining collision adressing tactics for hash tables, as well as inserting/searching a binary tree. This class covered linked lists, binary search trees, graphs, and hash tables, meaning I have experience implementing all of these in C++.
 
 
 
