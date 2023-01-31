@@ -1,6 +1,5 @@
 import requests
-import json
-#User-Agent: (xavierokeefe.com, xaok7569@colorado.edu)
+# User-Agent: (xavierokeefe.com, xaok7569@colorado.edu)
 
 URL = "https://api.weather.gov/points/40.01422952671554,-105.27065495300589"
 
@@ -15,11 +14,9 @@ humidity = h_agent['properties']['relativeHumidity']['values']
 print(humidity[11]['value'])
 temp2 = r2['properties']['periods']
 for k in range(11):
-        humid_arr.append(int(humidity[k]['value']))
+    humid_arr.append(int(humidity[k]['value']))
 
-
-
-for i in range(0,14,2):
+for i in range(0, 14, 2):
     print("##################################################################################")
     print('Forecast for ' + temp2[i]['name'] + ': ')
     print(temp2[i]['detailedForecast'])
@@ -29,9 +26,4 @@ for i in range(0,14,2):
     if i == 0:
         print("Max humidity will be " + str(max(humid_arr)) + "%")
         print("Min humidity will be " + str(min(humid_arr)) + "%")
-    #print("##################################################################################")
-
-
-
-# for i in len(temp2):
-#     print(temp2[i])
+    # print("##################################################################################")
