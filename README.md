@@ -3,15 +3,17 @@ Hello! Here is a collection of my personal projects. Each folder will contain fi
 
 <h2>Python</h2>
 - Contains a several python projects, some for robosub, some for personal use
+- These are smaller examples, I am unable to post most of my current non-personal work
 
 <h2>Arduino</h2>
 - Contains two projects, one for my freshman class and one for personal development
 
 <h2>Scripting</h2>
 - Contains a script written for a client
+- This program Found and replaced every instance of a string in an entire directory, saving my client minutes with every use
 
 <h2>C++</h2>
-- Most of my experience with C++ has come from courses at CU Boulder, so there is not much work that I am able to share in C++. I have added my final project for Data Structures, which involved using both open addressing and chaining collision adressing tactics for hash tables, as well as inserting/searching a binary tree. This class covered linked lists, binary search trees, graphs, and hash tables, meaning I have experience implementing all of these in C++.
+- This contains my CSCI 2270 (Data Structures) final project, as well as my own sudoku solver that I made for fun
 
 
 
