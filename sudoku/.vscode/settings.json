@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "string": "cpp",
+        "iostream": "cpp",
+        "vector": "cpp",
+        "__hash_table": "cpp",
+        "__split_buffer": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "initializer_list": "cpp",
+        "string_view": "cpp",
+        "unordered_map": "cpp",
+        "__node_handle": "cpp",
+        "ostream": "cpp"
+    }
+}
