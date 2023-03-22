@@ -21,10 +21,11 @@ class readData:
         self.totalHoursWorkedWeek1 = 5
         self.totalHoursWorkedWeek2 = 6
         self.bigTotalWorked = 11
+        self.url = "www.google.com"
 
     # Load the browser
     def getBrowser(self):
-        self.browser.get("https://casa.colorado.edu/MemberServices/EmployInfo/hourly_report.shtml")
+        self.browser.get(self.url)
         time.sleep(15)
 
     # Function to read the CSV file and add data into the form
