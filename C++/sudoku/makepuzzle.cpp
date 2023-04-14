@@ -27,6 +27,34 @@ Puzzle::Puzzle(int size)
     this->size = size;
 }
 
+void Puzzle::makeBoxes()
+{
+    for (int i =0; i < size; i++)
+    {
+        Box temp;
+        temp.id = i;
+        temp.numbers.push_back(0);
+        boxes.push_back(temp);
+    }
+}
+
+void computeBounds(int size)
+{
+    int rows = sqrt(size);
+
+
+}
+void Puzzle::assignBoxes(int start, int end)
+{
+    for(int x = start; x < end; x++)
+    {
+        for(int i =start; i < end; i++)
+        {
+            
+        }
+    }
+}
+
 void Puzzle::createPuzzle()
 {
     repCount = 0;
@@ -45,11 +73,20 @@ void Puzzle::createPuzzle()
             puzzle[i][j].x = i;
             puzzle[i][j].y = j;
             puzzle[i][j].solved = false;
+            puzzle[i][j].boxID = -1;
         }
     }
-    
+    makeBoxes();
+    for(int i = 0; i < size; i+=sqrt(size))
+    {
+        int start = i;
+        int end = i+=sqrt(size);
+        assignBoxes(start,end);
+    }
+    cout << "ID : " << boxes[puzzle[0][1].boxID].id << endl;
     return;
 }
+
 
 bool Puzzle::checkSolved()
 {
@@ -156,6 +193,8 @@ void Puzzle::Solve()
         }
     }
     addElement();
+    // cout << "test box" << boxes[0][0].elements[0][0].x << endl;
+
     if(!checkSolved())
     {
         if(repCount > 100)
@@ -163,8 +202,8 @@ void Puzzle::Solve()
             cout << " cant be solved." << endl;
             exit(0);
         }
-        cout << "try " << endl;
-        printPuzzle();
+        // cout << "try " << endl;
+        // printPuzzle();
         repCount++;
         Solve();
     }

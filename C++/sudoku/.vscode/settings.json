@@ -11,6 +11,7 @@
         "string_view": "cpp",
         "unordered_map": "cpp",
         "__node_handle": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "new": "cpp"
     }
 }
