@@ -1,3 +1,6 @@
 [submodule "Joystick-Analyzer"]
 	path = Joystick-Analyzer
 	url = git@github.com:xavier2933/Joystick-Analyzer.git
+[submodule "Pay-form-automation"]
+	path = Pay-form-automation
+	url = git@github.com:xavier2933/Pay-form-automation.git
