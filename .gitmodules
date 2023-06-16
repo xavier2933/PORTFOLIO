@@ -1,6 +1,3 @@
-[submodule "final-project-xavier2933"]
-	path = final-project-xavier2933
-	url = git@github.com:cu-csci-2270-fall-2022/final-project-xavier2933.git
 [submodule "Joystick-Analyzer"]
 	path = Joystick-Analyzer
 	url = git@github.com:xavier2933/Joystick-Analyzer.git
