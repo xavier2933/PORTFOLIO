@@ -5,7 +5,7 @@ Hello! Here is a collection of my personal projects. Some are larger, some are s
 - Contains two projects, one for my freshman project and one for personal development
 
 ## C++
-- This contains my CSCI 2270 (Data Structures) final project, as well as my own sudoku solver that I made for fun. Most of my work in C++ has been for classes/work so I am unable to share it.
+- This contains my CSCI 2270 (Data Structures) final project, a bogosort script, as well as my own sudoku solver that I made for fun. Most of my work in C++ has been for classes/work so I am unable to share it.
 
 ## Joystick-Analyzer
 - I developed this program to analyze data from an experiment with CASA. Written in C++. More info available in the repo's own README
