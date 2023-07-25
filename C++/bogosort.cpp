@@ -1,11 +1,11 @@
-#include <vector>
 #include <algorithm>
 #include <climits>
-#include <random>
-#include <iostream>
 #include <chrono>
+#include <iostream>
+#include <random>
 #include <string>
 #include <unordered_map>
+#include <vector>
 
 
 // Checks if sort is valid
@@ -42,18 +42,20 @@ double getTime(std::vector<int> nums, int* count)
 {
     bool unsorted = true;
     auto start = std::chrono::system_clock::now(); // get start time
+    int sorts = 0;
 
     while(unsorted)
     {
         unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
         shuffle(nums.begin(), nums.end(), std::default_random_engine(seed)); // randomize with this seed
         unsorted = check(nums); // check to see if sorted
+        sorts++;
     }
 
     auto end = std::chrono::system_clock::now();
     printNums(nums, count);
     std::chrono::duration<double> elapsed_seconds = end-start;
-    std::cout << "Total time " << elapsed_seconds.count() << std::endl;
+    std::cout << "Total time " << elapsed_seconds.count() << std::endl << "Sorts required: " << sorts << std::endl;
     return elapsed_seconds.count();  
 }
 
