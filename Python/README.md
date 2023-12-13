@@ -1,6 +1,10 @@
 # Python Folder
 - Here you will find a selection of my favorite Python projects.
 
+## foodSearch.py
+- Used Google places API to search for restaurants within a given radius and return a random item
+- Fun to try, actually very useful for me
+
 ## F22/23 gradeCalc.py
 - Grade calculators for my finals in fall of 2022 and fall of 2023. I think it's interesting to see how my code has improved and the different ways I approached the problems.
   
