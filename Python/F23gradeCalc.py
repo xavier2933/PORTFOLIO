@@ -1,4 +1,8 @@
-
+############################################################################################
+"""
+Final grade calculator for my fall 2023 semester
+"""
+############################################################################################
 
 class gradeCalc:
     
@@ -10,7 +14,7 @@ class gradeCalc:
             finalScore = float(((float(exam1Score) + float(exam3Score) + 85)/300)*100)
             print("Final score: ", finalScore)
             self.weights = {
-                "Exam 1": (15, exam1Score),
+                "Exam 1": (15, exam1Score), # (weight, score)
                 "Exam 2": (15, 85),
                 "Exam 3": (15, exam3Score),
                 "Final": (25, str(finalScore)),
@@ -21,13 +25,11 @@ class gradeCalc:
 
         elif classNumber == "2":
             print("Structures grader\/\/\/\/\/\/\/")
-            hwGrade = input("input hw grade: > ")
-            # examGrade = input("input exam score: > ")
             finalGrade = input("input final grade: > ")
             self.weights = {
                 "Clicker": (10, 85),
                 "Quizzes": (10, 100),
-                "Homework": (10, hwGrade),
+                "Homework": (10, 100),
                 "Exams": (20, 104),
                 "Final": (50, finalGrade)
             }
@@ -47,7 +49,6 @@ class gradeCalc:
 
         elif classNumber == "4":
             print("Systems Grader/\/\/\/\/\/\/\/")
-            # labGrade = input("input lab grade: > ")
             examGrade = input("input exam grade: > ")
             self.weights = {
                 "Labs": (42, 92.667),
@@ -68,7 +69,7 @@ class gradeCalc:
 
 
 if __name__ == "__main__":
-    inputStr = input("Enter last number of class code: ")
+    inputStr = input("Enter last number of class code: > ")
     gc = gradeCalc(inputStr)
     gc.calc()
     exit()
