@@ -39,18 +39,23 @@ class gradeCalc:
             finalGrade = input("input final grade: > ")
             self.weights = {
                 "Quizzes": (20, 100),
-                "Homework": (20, 92.78),
+                "Homework": (20, 93.5),
                 "Exam1": (12, 78.25),
                 "Exam2": (13, 88.25),
+<<<<<<< HEAD
                 "Exam3": (15, 69.5),
+=======
+                "Exam3": (15, 71.5),
+>>>>>>> 1b5d4eed8db2c56c06947d20f06796bb7404a8e0
                 "Final": (20, finalGrade)
             }
 
         elif classNumber == "4":
             print("Systems Grader/\/\/\/\/\/\/\/")
             examGrade = input("input exam grade: > ")
+            examGrade = (97+94.3+69.8+float(examGrade))/4
             self.weights = {
-                "Labs": (42, 92.667),
+                "Labs": (42, 95),
                 "Exams": (48, examGrade),
                 "Quiz": (10, 96.833)
             }
